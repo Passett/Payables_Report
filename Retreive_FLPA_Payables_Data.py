@@ -1,7 +1,3 @@
-#To Do
-#Add general description comment at top of code, clean up imports, and write better comments throughout
-#Create a FLPA login that is used only for reports and change the login info in this code to the new login
-
 #Import dependencies
 import time
 from datetime import date
