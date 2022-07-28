@@ -136,28 +136,4 @@ wb.SaveAs(newfile)
 wb.Close(True)
 xl.Quit()
 
-#Start the email for the report
-
-# outlook = win32com.client.gencache.EnsureDispatch('Outlook.Application')
-# new_mail = outlook.CreateItem(0)
-
-# # Label the subject
-# new_mail.Subject = "Payables Report {:%m-%d-%y}".format(date.today())
-
-# # Add the to and cc list
-# to_email="""
-# Melissa Shirah <Melissa.Shirah@em.myflorida.com>; Douglas Roberts <Douglas.Roberts@em.myflorida.com>; Ben Fairbrother <Ben.Fairbrother@em.myflorida.com>; Ronald Baker <Ronald.Baker@em.myflorida.com>; Jennifer Stallings <Jennifer.Stallings@em.myflorida.com>
-# """
-# cc_email="""
-# Jonathan Blocker <Jonathan.Blocker@em.myflorida.com>; Christopher Sabol <Christopher.Sabol@em.myflorida.com>
-# """
-# new_mail.To=to_email
-# new_mail.CC=cc_email
-
-# # Attach the file (Needs to be a string, not a path)
-# new_mail.Attachments.Add(Source=str(newfile))
-
-# message="Greetings,\nAttached is the most recent payables report. Please let me know if you have any questions or concerns."
-# new_mail.Display(True)
-
 print("Task Complete")
