@@ -126,8 +126,7 @@ export(payables_filters, Payables_Destination, "Payables_Export_")
 
 driver.close()
 
-# Open the report template, refresh the data sources, delete queries from workbook, save as new name in correct location
-
+# Open the Payables report template, refresh the data sources, delete queries from workbook, save as new name in correct location
 today=date.today().strftime("%Y%m%d")
 filename=r'J:\Admin & Plans Unit\Recovery Systems\2. Reports\2. Weekly\Payables Report\Payables_Report_Template.xlsx'
 newfile=r'J:\Admin & Plans Unit\Recovery Systems\2. Reports\2. Weekly\Payables Report\Archive\2022\\'+"Payables_Report_"+today+".xlsx"
