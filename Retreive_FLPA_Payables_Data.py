@@ -70,12 +70,26 @@ def move(destination):
             os.remove(file_name) #Delete original file
     time.sleep(5)
 
-#Function to download FLPA CSVs. Accepts three arguments; driver.get location, destination path, and sleep time 
-def export(listing, destination):
+#Function to rename export file
+def Rename_File(folder, file_name):
+    for file in os.listdir(folder):
+        old_file_name=folder+"/"+file
+        if file.endswith(".csv"):
+            new_file_name=folder+"/"+file_name+date.today().strftime("%m%d%Y")+".csv"
+            os.rename(old_file_name, new_file_name)
+        elif file.endswith(".xlsx"):
+            new_file_name=folder+"/"+file_name+date.today().strftime("%m%d%Y")+".xlsx"
+            os.rename(old_file_name, new_file_name)
+        else:
+            return
+
+#Function to download FLPA CSVs. Accepts three arguments; driver.get location, destination path, and desired file name
+def export(listing, destination, name):
     driver.get(listing)
     time.sleep(20)
     download_report()
     move(destination)
+    Rename_File(destination, name)
 
 #Provide a message to the person running this script
 print("Greetings, we are pulling your Payables Report data for you now.\nThis will take about 5 minutes and we will let you know as soon as this task is complete.")
@@ -108,7 +122,7 @@ payables_filters=(p1+p2+p3+p4+p5+p6+p7)
 Payables_Destination=r'J:\Admin & Plans Unit\Recovery Systems\2. Reports\4. Data Files\FLPA Payables Export'
 dir_name=r'J:\Admin & Plans Unit\Recovery Systems\2. Reports\4. Data Files\Holding Folder'
 
-export(payables_filters, Payables_Destination)
+export(payables_filters, Payables_Destination, "Payables_Export_")
 
 driver.close()
 
